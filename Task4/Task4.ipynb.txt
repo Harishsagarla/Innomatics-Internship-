@@ -1,0 +1,230 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": []
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "NAmmMXCINAzs",
+        "outputId": "e7aafc66-9654-487f-cf2a-45d7668c4236"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "199\n",
+            "Recharge Successful\n"
+          ]
+        }
+      ],
+      "source": [
+        "def validate_recharge():\n",
+        "    valid_plans = [199, 299, 399, 599]\n",
+        "    while True:\n",
+        "        amount = int(input())\n",
+        "        if amount >= 50 and amount in valid_plans:\n",
+        "            print(\"Recharge Successful\")\n",
+        "            break\n",
+        "        else:\n",
+        "            print(\"Invalid Recharge. Try Again\")\n",
+        "\n",
+        "validate_recharge()"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def inventory_alert(products):\n",
+        "    for item, qty in products.items():\n",
+        "        if qty < 15:\n",
+        "            print(item, \"→ Reorder Alert\")\n",
+        "        else:\n",
+        "            print(item, \"→ Stock OK\")\n",
+        "\n",
+        "products = {\"Pen\": 10, \"Notebook\": 25, \"Pencil\": 5, \"Eraser\": 18}\n",
+        "inventory_alert(products)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "TNWU5EStNFfE",
+        "outputId": "e7007927-1616-4b7a-e6a6-4a176a9c0849"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Pen → Reorder Alert\n",
+            "Notebook → Stock OK\n",
+            "Pencil → Reorder Alert\n",
+            "Eraser → Stock OK\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def student_result(marks):\n",
+        "    total = 0\n",
+        "    for m in marks:\n",
+        "        total += m\n",
+        "    avg = total / len(marks)\n",
+        "    if avg >= 50:\n",
+        "        print(\"Pass\")\n",
+        "    else:\n",
+        "        print(\"Fail\")\n",
+        "\n",
+        "student_result([40, 60, 70, 50])"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "ehfz2XM7NHbZ",
+        "outputId": "3a96c86c-b17d-4b84-9add-053c922b879b"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Pass\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def cab_fare():\n",
+        "    while True:\n",
+        "        km = float(input())\n",
+        "        peak = input()\n",
+        "        fare = 50 + (12 * km)\n",
+        "        if peak == \"yes\":\n",
+        "            fare += fare * 0.25\n",
+        "       print(\"Fare:\", fare)\n",
+        "        retry = input()\n",
+        "        if retry != \"yes\":\n",
+        "            break\n",
+        "\n",
+        "cab_fare()"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "pXaniWUzNHll",
+        "outputId": "db149cf8-da00-4ccd-ed62-c2c63ab1292e"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "name": "stdout",
+          "output_type": "stream",
+          "text": [
+            "10\n",
+            "Yes\n",
+            "Fare: 170.0\n",
+            "Yes\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def attendance_check(attendance):\n",
+        "    present = 0\n",
+        "    for day in attendance:\n",
+        "        if day == \"P\":\n",
+        "            present += 1\n",
+        "    percent = (present / len(attendance)) * 100\n",
+        "    if percent >= 75:\n",
+        "        return \"Eligible\"\n",
+        "    else:\n",
+        "        return \"Not Eligible\"\n",
+        "\n",
+        "print(attendance_check([\"P\",\"P\",\"A\",\"P\",\"P\",\"A\",\"P\",\"P\"]))"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "MPdj11BLNH_Q",
+        "outputId": "fae65826-cb9c-4ed2-da01-349947a9b9e8"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Eligible\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def password_checker(password):\n",
+        "    has_digit = False\n",
+        "    has_special = False\n",
+        "    special_chars = \"@#$\"\n",
+        "\n",
+        "    for ch in password:\n",
+        "        if ch.isdigit():\n",
+        "            has_digit = True\n",
+        "        if ch in special_chars:\n",
+        "            has_special = True\n",
+        "\n",
+        "    if len(password) >= 8 and has_digit and has_special:\n",
+        "        print(\"Strong Password\")\n",
+        "    else:\n",
+        "        print(\"Weak Password\")\n",
+        "\n",
+        "password_checker(\"Test@123\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "dLB3Jy_VNIZb",
+        "outputId": "dec969ab-60f4-4559-d992-2cf858651fbc"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Strong Password\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
